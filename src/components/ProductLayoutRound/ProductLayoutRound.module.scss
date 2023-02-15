@@ -1,0 +1,110 @@
+.wrapper {
+    height: 1000px;
+}
+.list-product {
+    display: flex;
+}
+.product-samples {
+    width: 25%;
+}
+.product {
+    max-width: 356px;
+
+    &:hover {
+        .add-cart {
+            display: block;
+        }
+    }
+}
+
+.product-image {
+    position: relative;
+    display: none;
+
+    img {
+        width: 100%;
+    }
+}
+
+.selected {
+    display: block;
+}
+.favourite-icon {
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    background-color: #fff;
+    top: 10px;
+    right: 10px;
+    display: flex;
+    cursor: pointer;
+    align-items: center;
+    justify-content: center;
+    .icon {
+        font-size: 2rem;
+    }
+}
+
+.add-cart {
+    display: none;
+    position: absolute;
+    top: 50%;
+    right: 30%;
+    font-size: 1.2rem;
+    padding: 6px 15px;
+    font-weight: 600;
+    cursor: pointer;
+    background-color: #fff;
+}
+
+.product-type {
+    margin-top: 10px;
+    display: flex;
+    justify-content: left;
+    cursor: pointer;
+    .type-image {
+        margin-right: 10px;
+        width: 18px;
+        height: 18px;
+        border-radius: 50%;
+        position: relative;
+        box-shadow: 0 0 5px rgb(216, 203, 203);
+        img {
+            display: block;
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+        }
+        .selected-type {
+            display: block;
+            position: absolute;
+            content: '';
+            left: -2px;
+            top: -2px;
+            border-radius: 50%;
+            width: 22px;
+            height: 22px;
+            border: 1px solid var(--primary);
+        }
+    }
+}
+.product-description {
+    margin-top: 10px;
+
+    .product-name {
+        color: var(--primary);
+        font-size: 1.4rem;
+        font-weight: 400;
+        cursor: pointer;
+
+        &:hover {
+            color: var(--text-color-hover);
+        }
+    }
+
+    .product-price {
+        color: var(--primary);
+        font-size: 1.4rem;
+        font-weight: 600;
+    }
+}

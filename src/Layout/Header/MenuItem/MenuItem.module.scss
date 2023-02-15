@@ -1,0 +1,28 @@
+.navbar-content {
+    margin: 0 20px;
+    font-size: 1.5rem;
+    line-height: 80px;
+    cursor: pointer;
+    position: relative;
+    text-decoration: none;
+    color: #6c757b;
+    font-weight: 700;
+
+    &:hover {
+        color: #333f48;
+    }
+}
+.active {
+    color: #333f48;
+
+    &::after {
+        position: absolute;
+        content: ' ';
+        background: #da291c;
+        width: 20px;
+        height: 4px;
+        border-radius: 2px;
+        top: 65%;
+        left: 0;
+    }
+}
