@@ -1,10 +1,15 @@
-import { Button, Container, Form, Nav, Navbar } from 'react-bootstrap';
+import { useState } from 'react';
+import { Nav } from 'react-bootstrap';
 import classNames from 'classnames/bind';
 import { NavLink } from 'react-router-dom';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faBagShopping, faSearch, faUser } from '@fortawesome/free-solid-svg-icons';
 
 import config from '~/config';
 import MenuItem from './MenuItem';
 import styles from './Header.module.scss';
+import { Search } from '~/Layout';
+import LayoutCart from '../LayoutCart';
 
 const cx = classNames.bind(styles);
 
@@ -19,22 +24,12 @@ function Header() {
                     <MenuItem title="NỮ" to={config.routes.woman} />
                     <MenuItem title="NAM" to={config.routes.man} />
                 </Nav>
-                <Form className={cx('d-flex')}>
-                    <Form.Control type="search" placeholder="Search" className={cx('me-2')} aria-label="Search" />
-                    <Button variant="outline-success">Search</Button>
-                </Form>
+                <div className={cx('actions')}>
+                    <Search />
+                    <MenuItem title={<FontAwesomeIcon icon={faUser} />} to={config.routes.user} />
+                    <LayoutCart />
+                </div>
             </header>
-            <div className={cx('header-child')}>
-                <div className={cx('child-onlyHome')}>
-                    <p>ĐỔI HÀNG MIỄN PHÍ - Tại tất cả cửa hàng trong 30 ngày</p>
-                </div>
-                <div className={cx('header-child-navbar')}>
-                    <span>Sản phẩm mới</span>
-                    <span>Áo quần</span>
-                    <span>Phụ kiện</span>
-                    <span>Giá tốt</span>
-                </div>
-            </div>
         </aside>
     );
 }

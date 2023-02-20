@@ -1,0 +1,32 @@
+.wrapper {
+    line-height: 80px;
+    margin: 0 20px;
+    font-size: 1.7rem;
+    position: relative;
+}
+
+.icon-cart {
+    color: #6c757b;
+    cursor: pointer;
+    &:hover {
+        color: var(--primary);
+    }
+}
+
+.quantity-cart {
+    position: absolute;
+    width: 15px;
+    height: 15px;
+    background-color: var(--text-color-hover);
+    top: 32%;
+    left: 54%;
+    border-radius: 999px;
+    line-height: 15px;
+
+    p {
+        color: #fff;
+        font-size: 1.2rem;
+        text-align: center;
+        margin: 0;
+    }
+}
