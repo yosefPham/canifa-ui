@@ -1,12 +1,12 @@
 import { Header } from '~/Layout';
 import classNames from 'classnames/bind';
 import Slider from 'react-slick';
-import React, { useState, useEffect } from 'react';
-import axios from 'axios';
+import React, { useState, useEffect, useContext } from 'react';
 
 import styles from './Home.module.scss';
 import ProductLayoutRound from '~/components/ProductLayoutRound';
 import FooterLayout from '~/components/FooterLayout';
+import { AppContext } from '~/Context/AppContext';
 
 const cx = classNames.bind(styles);
 function Home() {
@@ -57,30 +57,8 @@ function Home() {
         { image: 'https://media.canifa.com/Simiconnector/list_image_tablet_second1676348061.webp' },
         { image: 'https://media.canifa.com/Simiconnector/list_image_tablet_third1676425350.webp' },
     ];
-    const [products, setProducts] = useState([]);
-    useEffect(() => {
-        const options = {
-            method: 'GET',
-            url: 'https://fakestoreapi.com/products',
-            headers: {
-                'X-RapidAPI-Key': 'SIGN-UP-FOR-KEY',
-                'X-RapidAPI-Host': 'datagram-products-v1.p.rapidapi.com',
-            },
-        };
-        const API = async () => {
-            await axios
-                .request(options)
-                .then((response) => {
-                    setProducts(response.data);
-                    console.log(response.data);
-                })
-                .catch((error) => {
-                    console.error(error);
-                });
-        };
-        API();
-    }, []);
 
+    const { products } = useContext(AppContext);
     const AOI = products.slice(0, 5);
     const BOT = products.slice(5, 10);
     const COT = products.slice(10, 15);

@@ -12,6 +12,20 @@
         color: var(--primary);
     }
 }
+.icon-cart-selected {
+    color: var(--primary);
+
+    &::after {
+        position: absolute;
+        content: ' ';
+        background: #da291c;
+        width: 15px;
+        height: 2px;
+        border-radius: 2px;
+        top: 65%;
+        left: 0px;
+    }
+}
 
 .quantity-cart {
     position: absolute;
@@ -28,5 +42,118 @@
         font-size: 1.2rem;
         text-align: center;
         margin: 0;
+    }
+}
+.quantity-cart-zero {
+    display: none;
+}
+.layout-cart {
+    padding: 20px 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 360px;
+    max-height: 600px;
+    background-color: #fff;
+    z-index: 999999;
+    box-shadow: 0 0 10px 1px #dddcdc;
+}
+.products-cart {
+    overflow: scroll;
+    max-height: 400px;
+    width: 100%;
+    padding-top: 10px;
+    margin-top: 10px;
+    border-top: 1px solid #ccc;
+    border-bottom: 1px solid #ccc;
+}
+
+.products {
+    display: flex;
+    margin-bottom: 20px;
+    justify-content: space-between;
+}
+.delete-product {
+    display: none;
+}
+.products-description {
+    width: 70%;
+    display: flex;
+    font-size: 1.3rem;
+    .products-image {
+        display: flex;
+        align-items: center;
+        img {
+            width: 60px;
+            height: auto;
+            margin-right: 10px;
+        }
+    }
+    h3 {
+        font-size: 1.3rem;
+        cursor: pointer;
+        font-weight: 400;
+        -webkit-line-clamp: 1;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+        display: -webkit-box;
+        text-overflow: ellipsis;
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+    p {
+        font-weight: 600;
+    }
+    h5 {
+        padding-top: 10px;
+        font-weight: 500;
+    }
+}
+
+.products-add-more {
+    width: 30%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    span {
+        cursor: pointer;
+        font-size: 2rem;
+        border-radius: 999px;
+        line-height: 19px;
+        width: 20px;
+        text-align: center;
+        color: var(--primary);
+        height: 20px;
+        border: 1px solid #ccc;
+    }
+    p {
+        margin: 0;
+        font-size: 1.4rem;
+        color: var(--primary);
+    }
+}
+
+.button {
+    text-align: center;
+    text-decoration: none;
+    margin-top: 20px;
+    padding: 10px;
+    color: #fff;
+    width: 100%;
+    font-weight: 600;
+    background-color: var(--primary);
+}
+
+.total-price {
+    margin-top: 20px;
+    font-size: 1.3rem;
+    display: flex;
+    font-weight: 400;
+
+    p {
+        font-weight: 600;
+        margin: 0 0 0 10px;
     }
 }

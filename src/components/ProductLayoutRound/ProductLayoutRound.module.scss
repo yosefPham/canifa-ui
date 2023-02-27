@@ -30,7 +30,7 @@
 }
 .product {
     max-width: 300px;
-
+    color: var(--primary);
     &:hover {
         .add-cart-hover {
             display: block;
@@ -48,13 +48,16 @@
     max-width: 300px;
     height: 450px;
     overflow: hidden;
-    align-items: flex-end;
     display: flex;
     border-top: 1px solid #f0eded;
+    .product-image-child {
+        display: flex;
+        align-items: flex-end;
 
-    img {
-        margin: auto;
-        width: 90%;
+        img {
+            margin: auto;
+            width: 90%;
+        }
     }
 }
 
@@ -121,8 +124,10 @@
     }
 }
 .product-description {
+    display: block;
     margin-left: 10px;
     margin-top: 10px;
+    text-decoration: none;
 
     .product-name {
         color: var(--primary);

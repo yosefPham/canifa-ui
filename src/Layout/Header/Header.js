@@ -3,7 +3,7 @@ import { Nav } from 'react-bootstrap';
 import classNames from 'classnames/bind';
 import { NavLink } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faBagShopping, faSearch, faUser } from '@fortawesome/free-solid-svg-icons';
+import { faUser } from '@fortawesome/free-solid-svg-icons';
 
 import config from '~/config';
 import MenuItem from './MenuItem';

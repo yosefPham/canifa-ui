@@ -5,13 +5,16 @@ import 'bootstrap/dist/js/bootstrap.bundle.min';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import GlobalStyles from './components/GlobalStyles';
+import { AppProvider } from './Context/AppContext';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
     // <React.StrictMode>
-    <GlobalStyles>
-        <App />
-    </GlobalStyles>,
+    <AppProvider>
+        <GlobalStyles>
+            <App />
+        </GlobalStyles>
+    </AppProvider>,
     {
         /* </React.StrictMode>, */
     },

@@ -1,12 +1,15 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import classNames from 'classnames/bind';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHeart } from '@fortawesome/free-regular-svg-icons';
 import 'react-multi-carousel/lib/styles.css';
 import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
+import { NavLink } from 'react-router-dom';
 import 'slick-carousel/slick/slick-theme.css';
+import { AppContext } from '~/Context/AppContext';
 
+import config from '~/config';
 import styles from './ProductLayoutRound.module.scss';
 import { AddToCart } from '~/Layout';
 const cx = classNames.bind(styles);
@@ -67,9 +70,14 @@ const settings2 = {
 
 function ProductLayoutRound({ data, background }) {
     const [selected, setSelected] = useState(0);
+    const { setproductDetail } = useContext(AppContext);
 
     const handleSelect = (index) => {
         setSelected(index);
+    };
+
+    const handleProductDetail = (data) => {
+        setproductDetail(data);
     };
     return (
         <aside className={cx('wrapper')}>
@@ -91,7 +99,13 @@ function ProductLayoutRound({ data, background }) {
                             {data.slice(0, 5).map((data) => (
                                 <div key={data.id} className={cx('product', 'box-shadow')}>
                                     <div className={cx('product-image')}>
-                                        <img className={cx('d-block', 'w-10')} src={data.image} alt="First slide" />
+                                        <NavLink
+                                            onClick={() => handleProductDetail(data)}
+                                            to={config.routes.product_detail}
+                                            className={cx('product-image-child')}
+                                        >
+                                            <img className={cx('d-block', 'w-10')} src={data.image} alt="First slide" />
+                                        </NavLink>
                                         <div className={cx('favourite-icon')}>
                                             <FontAwesomeIcon className={cx('icon')} icon={faHeart} />
                                         </div>
@@ -100,10 +114,14 @@ function ProductLayoutRound({ data, background }) {
                                         </div>
                                     </div>
 
-                                    <div className={cx('product-description')}>
+                                    <NavLink
+                                        onClick={() => handleProductDetail(data)}
+                                        to={config.routes.product_detail}
+                                        className={cx('product-description')}
+                                    >
                                         <h3 className={cx('product-name')}>{data.title}</h3>
                                         <h3 className={cx('product-price')}>{data.price} $</h3>
-                                    </div>
+                                    </NavLink>
                                 </div>
                             ))}
                         </Slider>

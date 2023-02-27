@@ -4,6 +4,7 @@ const routes = {
     woman: '/woman',
     user: '/user',
     cart: '/cart',
+    product_detail: '/product-detail',
 };
 
 export default routes;

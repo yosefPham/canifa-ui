@@ -1,10 +1,13 @@
 import classNames from 'classnames/bind';
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef, useContext } from 'react';
+import { AppContext } from '~/Context/AppContext';
 
 import styles from './AddToCart.module.scss';
 
 const cx = classNames.bind(styles);
 function AddToCart({ data }) {
+    const { addCart, setAddCart, visible, setVisible } = useContext(AppContext);
+
     const [showResult, setShowResult] = useState(false);
 
     const refOne = useRef(null);
@@ -20,6 +23,13 @@ function AddToCart({ data }) {
     }, []);
 
     function SizeGroup() {
+        const sizes = [90, 100, 110, 120, 130, 140, 150];
+        const handleAddCart = (data) => {
+            setAddCart((prev) => [...prev, data]);
+            visible === true ? setVisible(false) : setVisible(true);
+
+            console.log(addCart);
+        };
         const [active, setActive] = useState(null);
         return (
             <>
@@ -30,11 +40,15 @@ function AddToCart({ data }) {
                         </p>
                     ))}
                 </div>
-                <span className={cx(active === null ? 'button' : ['button', 'button-add-cart'])}>THÊM VÀO GIỎ</span>
+                <span
+                    onClick={() => handleAddCart(data)}
+                    className={cx(active === null ? 'button' : ['button', 'button-add-cart'])}
+                >
+                    THÊM VÀO GIỎ
+                </span>
             </>
         );
     }
-    const sizes = [90, 100, 110, 120, 130, 140, 150];
     return (
         <aside>
             <div
